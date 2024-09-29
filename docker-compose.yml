@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306" # Mapping du port de la base de données
+    volumes:
+      - db_data:/var/lib/mysql # Pour persister les données de la DB
+
+  app:
+    build: . # Utilise le Dockerfile dans le répertoire courant
+    ports:
+      - "3002:3002" # Assurez-vous que votre app écoute sur le port 3002
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+      APP_PORT: ${APP_PORT}
+    depends_on:
+      - db
+
+volumes:
+  db_data:
