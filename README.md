@@ -1,3 +1,5 @@
+
+
 # API de Gestion des Recettes
 
 ## Description
@@ -8,49 +10,104 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
 
 ### Recettes
 
-- **GET /api/recettes**
+- **GET /api/recipes**
   - Récupère toutes les recettes.
-  - **Réponse** : Un tableau d'objets de recettes.
-- **GET /api/recettes/:id**
+  - **Exemple de réponse** :
+    ```json
+    [
+      {
+        "id": 1,
+        "titre": "Salade César revisitée",
+        "ingredients": "Laitue, Poulet grillé",
+        "type": "Entree"
+      }
+    ]
+    ```
 
+- **GET /api/recipes/:id**
   - Récupère une recette par ID.
-  - **Paramètres** :
+  - **Paramètre** :
     - `id` : L'ID de la recette à récupérer.
-  - **Réponse** : Un objet représentant la recette.
+  - **Exemple de requête** :
+    ```bash
+    GET /api/recipes/1
+    ```
+  - **Exemple de réponse** :
+    ```json
+    {
+      "id": 1,
+      "titre": "Salade Cesar revisitee",
+      "ingredients": "Laitue, Poulet grille",
+      "type": "Entree"
+    }
+    ```
 
-- **POST /api/recettes**
-
+- **POST /api/recipes**
   - Crée une nouvelle recette.
+  - **Exemple de requête** :
+    ```bash
+    POST /api/recipes
+    Content-Type: application/json
+    ```
   - **Corps de la requête (Body)** :
     ```json
     {
-      "name": "String",
-      "instructions": "String",
-      "user_id": "Int"
+      "titre": "Pâtes à la carbonara",
+      "ingredients": "Pâtes, Œufs, Lardons",
+      "type": "Plat principal"
     }
     ```
-  - **Réponse** : Un objet représentant la recette créée, incluant l'ID généré.
+  - **Exemple de réponse** :
+    ```json
+    {
+      "id": 2,
+      "titre": "Pâtes à la carbonara",
+      "ingredients": "Pâtes, Œufs, Lardons",
+      "type": "Plat principal"
+    }
+    ```
 
-- **PUT /api/recettes/:id**
-
+- **PUT /api/recipes/:id**
   - Met à jour une recette existante.
-  - **Paramètres** :
+  - **Paramètre** :
     - `id` : L'ID de la recette à mettre à jour.
+  - **Exemple de requête** :
+    ```bash
+    PUT /api/recipes/1
+    Content-Type: application/json
+    ```
   - **Corps de la requête (Body)** :
     ```json
     {
-      "nom": "String",
-      "instructions": "String",
-      "user_id": "Int"
+      "titre": "Salade César améliorée",
+      "ingredients": "Laitue, Poulet grillé, Parmesan",
+      "type": "Entree"
     }
     ```
-  - **Réponse** : Un objet représentant la recette mise à jour.
+  - **Exemple de réponse** :
+    ```json
+    {
+      "id": 1,
+      "titre": "Salade César améliorée",
+      "ingredients": "Laitue, Poulet grillé, Parmesan",
+      "type": "Entree"
+    }
+    ```
 
-- **DELETE /api/recettes/:id**
+- **DELETE /api/recipes/:id**
   - Supprime une recette par ID.
-  - **Paramètres** :
+  - **Paramètre** :
     - `id` : L'ID de la recette à supprimer.
-  - **Réponse** : Un message de confirmation ou une erreur si la recette n'est pas trouvée.
+  - **Exemple de requête** :
+    ```bash
+    DELETE /api/recipes/1
+    ```
+  - **Exemple de réponse** :
+    ```json
+    {
+      "message": "Recette supprimée avec succès."
+    }
+    ```
 
 ## Installation
 
@@ -58,18 +115,38 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
 
    ```bash
    git clone https://github.com/Fatoumacisse99/APIGestion_Recettes.git
-   ```
 
-   ```
-   cd APIGestion_Recettes
-   ```
+ 2. Accédez au répertoire du projet :
 
-   ```bash
-   npm install
+```bash
+cd APIGestion_Recettes
+```
+3. Installez les dépendances :
 
-   ```
+```bash
+npm install
+```
 
-## Autheur
+4. Configurez la base de données dans un fichier .env :
+
+```bash
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD= yourpassword
+DB_NAME=yourdb
+DB_PORT= port
+```
+
+4. Démarrez le serveur :
+
+```bash
+ npm start
+ ```
+
+
+## Auteurs
 
 [Fatima cissé](https://github.com/Fatoumacisse99)
 et [Abdarahmane Demba](https://github.com/Abdarahmane)
+
