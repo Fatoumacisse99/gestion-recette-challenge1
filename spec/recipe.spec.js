@@ -4,25 +4,6 @@ import RecipeModel from "../src/models/Recipe.js";
 import db from "../src/config/db.js";
 
 describe("Recipe Model with Real Database", () => {
-  beforeAll(async () => {
-    try {
-      const connection = await db.getConnection();
-      console.log("Connected to the database");
-      connection.release();
-    } catch (error) {
-      console.error("Database connection failed", error);
-      throw error;
-    }
-  });
-
-  afterAll(async () => {
-    await db.end();
-  });
-
-  beforeEach(async () => {
-    await db.query("DELETE FROM recipes");
-  });
-
   it("should create a new recipe", async () => {
     const uniqueTitle = "New Recipe " + Date.now();
     const newRecipe = {
