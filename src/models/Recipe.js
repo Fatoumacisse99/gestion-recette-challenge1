@@ -58,14 +58,16 @@ const updateRecipe = async (id, recipeData) => {
 
 // Supprimer une recette
 const deleteRecipe = async (id) => {
-  // Ensure the ID is a valid number
+  // Assurez-vous que l'ID est un nombre valide
   if (isNaN(id)) {
     throw new Error("Invalid ID format");
   }
 
   const query = "DELETE FROM recipes WHERE id = ?";
   const result = await db.query(query, [id]);
-  return result;
+  
+  // Vérifiez combien de lignes ont été affectées
+  return result.affectedRows > 0; // Renvoie true si une recette a été supprimée
 };
 
 // Exportation des fonctions du modèle

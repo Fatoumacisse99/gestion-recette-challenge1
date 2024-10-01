@@ -105,11 +105,14 @@ export const deleteRecipe = async (req, res) => {
     if (!deleted) {
       return res.status(404).json({ message: "Recette non trouvée." });
     }
-    return res.status(204).send();
+    // Changer le statut 204 à 200 avec un message
+    return res.status(200).json({ message: "Recette supprimée avec succès." });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
 };
+
+
 
 export default {
   createRecipe,
