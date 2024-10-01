@@ -8,7 +8,6 @@ export default [
       globals: {
         ...globals.browser,
         jasmine: true,
-        // Ajoutez d'autres globales dont vous pourriez avoir besoin ici
         describe: true,
         it: true,
         beforeAll: true,
