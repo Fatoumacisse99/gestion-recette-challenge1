@@ -9,7 +9,7 @@ app.use(express.json());
 // Use the recipe routes
 app.use("/api", recipeRoutes);
 
-const PORT = process.env.APP_PORT || 3002;
+const PORT = process.env.APP_PORT || 3010;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
