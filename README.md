@@ -19,7 +19,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
         "id": 1,
         "titre": "Salade César revisitée",
         "ingredients": "Laitue, Poulet grillé",
-        "type": "Entree"
+        "type": "Entrée"
       }
     ]
     ```
@@ -36,9 +36,9 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
     ```json
     {
       "id": 1,
-      "titre": "Salade Cesar revisitee",
-      "ingredients": "Laitue, Poulet grille",
-      "type": "Entree"
+      "titre": "Salade César revisitée",
+      "ingredients": "Laitue, Poulet grillé",
+      "type": "Entrée"
     }
     ```
 
@@ -81,7 +81,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
     {
       "titre": "Salade César améliorée",
       "ingredients": "Laitue, Poulet grillé, Parmesan",
-      "type": "Entree"
+      "type": "Entrée"
     }
     ```
   - **Exemple de réponse** :
@@ -90,7 +90,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
       "id": 1,
       "titre": "Salade César améliorée",
       "ingredients": "Laitue, Poulet grillé, Parmesan",
-      "type": "Entree"
+      "type": "Entrée"
     }
     ```
 
@@ -108,6 +108,13 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
       "message": "Recette supprimée avec succès."
     }
     ```
+# Prérequis
+  
+  avant de  commencer, assurez-vous d'avoir installé les éléments suivants sur votre machine:
+
+  * Node.js(v16 ou superieure) 
+  * Mysql
+  * Postman ( pour tester l'API)
 
 ## Installation
 
@@ -127,7 +134,11 @@ cd APIGestion_Recettes
 npm install
 ```
 
-4. Configurez la base de données dans un fichier .env :
+4. Configurez la base de données :
+
+Assurez-vous que Mysql est en cours d'exécution sur votre machine locale.
+    Mettez les paramètres de connexion dans db.js.
+    Créez un fichier .env avec la configuration de votre base de données
 
 ```bash
 
@@ -137,16 +148,66 @@ DB_PASSWORD= yourpassword
 DB_NAME=yourdb
 DB_PORT= port
 ```
-
-4. Démarrez le serveur :
+5. Démarrez le serveur :
 
 ```bash
  npm start
  ```
+## Exécution des commandes
+ - Pour exécuter les tests unitaires, utilisez la commande suivante :
+
+```bash
+npm test
+```
+
+- Pour linting, exécutez la commande suivante 
+
+```bash
+
+npm run lint
+```
+Pour formater le code avec Prettier, exécutez :
+
+```bash
+
+npm run format
+```
+## Lancer l'API avec Docker
+
+Pour lancer l'API avec Docker, suivez ces étapes :
+
+### 1. Construire l'image Docker
+
+À la racine de votre projet, exécutez la commande suivante pour construire l'image Docker de l'API :
+
+```bash
+docker build -t recette-api .
+```
+Tester l'Image Localement : Après avoir construit l'image, vous pouvez la tester localement en exécutant la commande suivante :
+   ```bash
+   docker run -p 3010:3010 recette-api
+   ```
+   Cela exposera votre API sur le port 3010
+
+* Lancer le Conteneur avec Docker Compose : Pour lancer le conteneur en utilisant docker-compose, exécutez cette commande :
+  ```bash
+  docker-compose up --build
+  ```
+4. Accéder à l'API
+
+Une fois que le conteneur est en cours d'exécution, vous pouvez accéder à l'API à l'adresse suivante :
+
+
+http://localhost:3010/recettes
+
+
+
+
+
 
 
 ## Auteurs
 
-[Fatima cissé](https://github.com/Fatoumacisse99)
-et [Abdarahmane Demba](https://github.com/Abdarahmane)
+- [Fatima cissé](https://github.com/Fatoumacisse99)
+- [Abdarahmane Demba](https://github.com/Abdarahmane)
 
