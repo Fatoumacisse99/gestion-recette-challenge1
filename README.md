@@ -1,16 +1,23 @@
-
-
 # API de Gestion des Recettes
 
 ## Description
 
 Cette API permet de gérer les recettes dans une application de gestion de recettes. Elle permet de créer, lire, mettre à jour et supprimer des recettes.
 
-## Endpoints
+## Endpoints de l’API
+
+| Méthode | Endpoint               | Description                                |
+|---------|------------------------|--------------------------------------------|
+| GET     | `/api/recipes`         | Récupérer toutes les recettes              |
+| GET     | `/api/recipes/:id`     | Récupérer une recette par ID               |
+| POST    | `/api/recipes`         | Créer une nouvelle recette                 |
+| PUT     | `/api/recipes/:id`     | Mettre à jour une recette par ID           |
+| DELETE  | `/api/recipes/:id`     | Supprimer une recette par ID               |
 
 ### Recettes
 
 - **GET /api/recipes**
+
   - Récupère toutes les recettes.
   - **Exemple de réponse** :
     ```json
@@ -25,6 +32,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
     ```
 
 - **GET /api/recipes/:id**
+
   - Récupère une recette par ID.
   - **Paramètre** :
     - `id` : L'ID de la recette à récupérer.
@@ -43,6 +51,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
     ```
 
 - **POST /api/recipes**
+
   - Crée une nouvelle recette.
   - **Exemple de requête** :
     ```bash
@@ -68,6 +77,7 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
     ```
 
 - **PUT /api/recipes/:id**
+
   - Met à jour une recette existante.
   - **Paramètre** :
     - `id` : L'ID de la recette à mettre à jour.
@@ -108,13 +118,14 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
       "message": "Recette supprimée avec succès."
     }
     ```
-# Prérequis
-  
-  avant de  commencer, assurez-vous d'avoir installé les éléments suivants sur votre machine:
 
-  * Node.js(v16 ou superieure) 
-  * Mysql
-  * Postman ( pour tester l'API)
+# Prérequis
+
+avant de commencer, assurez-vous d'avoir installé les éléments suivants sur votre machine:
+
+- Node.js(v16 ou superieure)
+- Mysql
+- Postman ( pour tester l'API)
 
 ## Installation
 
@@ -123,11 +134,14 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
    ```bash
    git clone https://github.com/Fatoumacisse99/APIGestion_Recettes.git
 
- 2. Accédez au répertoire du projet :
+   ```
+
+2. Accédez au répertoire du projet :
 
 ```bash
 cd APIGestion_Recettes
 ```
+
 3. Installez les dépendances :
 
 ```bash
@@ -137,41 +151,47 @@ npm install
 4. Configurez la base de données :
 
 Assurez-vous que Mysql est en cours d'exécution sur votre machine locale.
-    Mettez les paramètres de connexion dans db.js.
-    Créez un fichier .env avec la configuration de votre base de données
+Mettez les paramètres de connexion dans db.js.
+Créez un fichier .env avec la configuration de votre base de données
 
 ```bash
-
-DB_HOST=localhost
+DB_HOST=db  //Si vous exécutez l'application avec Docker, utilisez 'db'.
+DB_HOST=localhost  //Si vous exécutez l'application localement sans Docker, utilisez 'localhost'.
 DB_USER=root
-DB_PASSWORD= yourpassword
+DB_PASSWORD=yourpassword
 DB_NAME=yourdb
-DB_PORT= port
+DB_PORT=3306 
+APP_PORT=3010 
 ```
+
 5. Démarrez le serveur :
 
 ```bash
  npm start
- ```
+```
+
 ## Exécution des commandes
- - Pour exécuter les tests unitaires, utilisez la commande suivante :
+
+- Pour exécuter les tests unitaires, utilisez la commande suivante :
 
 ```bash
 npm test
 ```
 
-- Pour linting, exécutez la commande suivante 
+- Pour linting, exécutez la commande suivante
 
 ```bash
 
 npm run lint
 ```
+
 Pour formater le code avec Prettier, exécutez :
 
 ```bash
 
 npm run format
 ```
+
 ## Lancer l'API avec Docker
 
 Pour lancer l'API avec Docker, suivez ces étapes :
@@ -181,33 +201,24 @@ Pour lancer l'API avec Docker, suivez ces étapes :
 À la racine de votre projet, exécutez la commande suivante pour construire l'image Docker de l'API :
 
 ```bash
-docker build -t recette-api .
+docker build -t fatoumacisse99/api-gestion-recette .
 ```
-Tester l'Image Localement : Après avoir construit l'image, vous pouvez la tester localement en exécutant la commande suivante :
-   ```bash
-   docker run -p 3010:3010 recette-api
-   ```
-   Cela exposera votre API sur le port 3010
+Assure-toi que le fichier docker-compose.yml est configuré correctement, puis exécute avec la commande suivante :
 
-* Lancer le Conteneur avec Docker Compose : Pour lancer le conteneur en utilisant docker-compose, exécutez cette commande :
+```bash
+docker-compose up -d
+```
+
+- Vérifier que les conteneurs sont en cours d'exécution avec la commande suivante:
   ```bash
-  docker-compose up --build
+  docker ps
   ```
+
 4. Accéder à l'API
 
-Une fois que le conteneur est en cours d'exécution, vous pouvez accéder à l'API à l'adresse suivante :
+L'API sera disponible à l'adresse suivant
+- http://localhost:3010/api/recipes.
 
+## Auteur
 
-http://localhost:3010/recettes
-
-
-
-
-
-
-
-## Auteurs
-
-- [Fatima cissé](https://github.com/Fatoumacisse99)
-- [Abdarahmane Demba](https://github.com/Abdarahmane)
-
+- [Fatouma Cisse](https://github.com/Fatoumacisse99)
