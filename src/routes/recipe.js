@@ -1,5 +1,5 @@
-import express from "express";
-import recipeController from "../controllers/RecipeController.js"; // Import correct sans parenthèses
+import express from 'express';
+import recipeController from '../controllers/RecipeController.js'; // Import correct sans parenthèses
 
 // Importer les validateurs
 import {
@@ -7,33 +7,33 @@ import {
   validateUpdateRecipe,
   validateDeleteRecipe,
   validate,
-} from "../validators/RecipeValidator.js"; // Pas de parenthèses autour des chemins
+} from '../validators/RecipeValidator.js'; // Pas de parenthèses autour des chemins
 
 // Définir le routeur
 const router = express.Router(); // Création d'une instance du routeur
 
 // Définir les routes CRUD avec validation
-router.get("/recipes", recipeController.getAllRecipes);
+router.get('/recipes', recipeController.getAllRecipes);
 router.get(
-  "/recipes/:id",
+  '/recipes/:id',
   validateUpdateRecipe(),
   validate,
   recipeController.getRecipeById,
 );
 router.post(
-  "/recipes",
+  '/recipes',
   validateCreateRecipe(),
   validate,
   recipeController.createRecipe,
 );
 router.put(
-  "/recipes/:id",
+  '/recipes/:id',
   validateUpdateRecipe(),
   validate,
   recipeController.updateRecipe,
 );
 router.delete(
-  "/recipes/:id",
+  '/recipes/:id',
   validateDeleteRecipe(),
   validate,
   recipeController.deleteRecipe,
