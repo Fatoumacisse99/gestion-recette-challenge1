@@ -1,35 +1,35 @@
-import { check, param, validationResult } from "express-validator";
+import { check, param, validationResult } from 'express-validator';
 
 // Validation pour la création d'une recette
 const validateCreateRecipe = () => {
   return [
-    check("titre")
+    check('titre')
       .not()
       .isEmpty()
-      .withMessage("Le titre ne peut pas être vide!")
+      .withMessage('Le titre ne peut pas être vide!')
       .bail()
       .isLength({ min: 6, max: 100 })
-      .withMessage("Le titre doit contenir entre 6 et 100 caractères!")
+      .withMessage('Le titre doit contenir entre 6 et 100 caractères!')
       .bail(),
 
-    check("ingredients")
+    check('ingredients')
       .not()
       .isEmpty()
-      .withMessage("Les ingrédients ne peuvent pas être vides!")
+      .withMessage('Les ingrédients ne peuvent pas être vides!')
       .bail()
       .isLength({ min: 10, max: 500 })
       .withMessage(
-        "Les ingrédients doivent contenir entre 10 et 500 caractères!",
+        'Les ingrédients doivent contenir entre 10 et 500 caractères!',
       ),
 
-    check("type")
+    check('type')
       .not()
       .isEmpty()
-      .withMessage("Le type de recette est requis!")
+      .withMessage('Le type de recette est requis!')
       .bail()
-      .isIn(["Entree", "plat principal", "Dessert"])
+      .isIn(['Entree', 'plat principal', 'Dessert'])
       .withMessage(
-        "Le type de recette doit être 'Entree', 'plat principal' ou 'Dessert'!",
+        'Le type de recette doit être \'Entree\', \'plat principal\' ou \'Dessert\'!',
       ),
   ];
 };
@@ -37,31 +37,31 @@ const validateCreateRecipe = () => {
 // Validation pour la mise à jour d'une recette
 const validateUpdateRecipe = () => {
   return [
-    param("id")
+    param('id')
       .not()
       .isEmpty()
-      .withMessage("L'ID est requis pour mettre à jour une recette!")
+      .withMessage('L\'ID est requis pour mettre à jour une recette!')
       .bail()
       .isInt({ gt: 0 })
-      .withMessage("L'ID doit être un entier positif!"),
+      .withMessage('L\'ID doit être un entier positif!'),
 
-    check("titre")
+    check('titre')
       .optional()
       .isLength({ min: 6, max: 100 })
-      .withMessage("Le titre doit contenir entre 6 et 100 caractères!")
+      .withMessage('Le titre doit contenir entre 6 et 100 caractères!')
       .bail(),
-    check("ingredients")
+    check('ingredients')
       .optional()
       .isLength({ min: 10, max: 500 })
       .withMessage(
-        "Les ingrédients doivent contenir entre 10 et 500 caractères!",
+        'Les ingrédients doivent contenir entre 10 et 500 caractères!',
       ),
 
-    check("type")
+    check('type')
       .optional()
-      .isIn(["Entree", "Plat principal", "Dessert"])
+      .isIn(['Entree', 'Plat principal', 'Dessert'])
       .withMessage(
-        "Le type de recette doit être 'Entree', ' Plat principal' ou 'dessert'!",
+        'Le type de recette doit être \'Entree\', \' Plat principal\' ou \'dessert\'!',
       ),
   ];
 };
@@ -69,13 +69,13 @@ const validateUpdateRecipe = () => {
 // Validation pour la suppression d'une recette
 const validateDeleteRecipe = () => {
   return [
-    param("id")
+    param('id')
       .not()
       .isEmpty()
-      .withMessage("L'ID est requis pour supprimer une recette!")
+      .withMessage('L\'ID est requis pour supprimer une recette!')
       .bail()
       .isInt({ gt: 0 })
-      .withMessage("L'ID doit être un entier positif."),
+      .withMessage('L\'ID doit être un entier positif.'),
   ];
 };
 
