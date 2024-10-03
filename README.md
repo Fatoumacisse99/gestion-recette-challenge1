@@ -6,13 +6,13 @@ Cette API permet de gérer les recettes dans une application de gestion de recet
 
 ## Endpoints de l’API
 
-| Méthode | Endpoint               | Description                                |
-|---------|------------------------|--------------------------------------------|
-| GET     | `/api/recipes`         | Récupérer toutes les recettes              |
-| GET     | `/api/recipes/:id`     | Récupérer une recette par ID               |
-| POST    | `/api/recipes`         | Créer une nouvelle recette                 |
-| PUT     | `/api/recipes/:id`     | Mettre à jour une recette par ID           |
-| DELETE  | `/api/recipes/:id`     | Supprimer une recette par ID               |
+| Méthode | Endpoint           | Description                      |
+| ------- | ------------------ | -------------------------------- |
+| GET     | `/api/recipes`     | Récupérer toutes les recettes    |
+| GET     | `/api/recipes/:id` | Récupérer une recette par ID     |
+| POST    | `/api/recipes`     | Créer une nouvelle recette       |
+| PUT     | `/api/recipes/:id` | Mettre à jour une recette par ID |
+| DELETE  | `/api/recipes/:id` | Supprimer une recette par ID     |
 
 ### Recettes
 
@@ -132,14 +132,14 @@ avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 1. Clonez le dépôt :
 
    ```bash
-   git clone https://github.com/Fatoumacisse99/APIGestion_Recettes.git
+   git clone https://github.com/Fatoumacisse99/gestion-recette-challenge1.git
 
    ```
 
 2. Accédez au répertoire du projet :
 
 ```bash
-cd APIGestion_Recettes
+cd gestion-recette-challenge1
 ```
 
 3. Installez les dépendances :
@@ -151,8 +151,7 @@ npm install
 4. Configurez la base de données :
 
 Assurez-vous que Mysql est en cours d'exécution sur votre machine locale.
-Mettez les paramètres de connexion dans db.js.
-Créez un fichier .env avec la configuration de votre base de données
+renommer le fichier .env.exemple en .env et entrer vos informations de connexion dans ce fichier:
 
 ```bash
 DB_HOST=db  //Si vous exécutez l'application avec Docker, utilisez 'db'.
@@ -160,8 +159,8 @@ DB_HOST=localhost  //Si vous exécutez l'application localement sans Docker, uti
 DB_USER=root
 DB_PASSWORD=yourpassword
 DB_NAME=yourdb
-DB_PORT=3306 
-APP_PORT=3010 
+DB_PORT=3306
+APP_PORT=3010
 ```
 
 5. Démarrez le serveur :
@@ -201,8 +200,9 @@ Pour lancer l'API avec Docker, suivez ces étapes :
 À la racine de votre projet, exécutez la commande suivante pour construire l'image Docker de l'API :
 
 ```bash
-docker build -t fatoumacisse99/api-gestion-recette .
+docker build -t fatoumacisse99/api-gestion-recette:v2 .
 ```
+
 Assure-toi que le fichier docker-compose.yml est configuré correctement, puis exécute avec la commande suivante :
 
 ```bash
@@ -217,6 +217,7 @@ docker-compose up -d
 4. Accéder à l'API
 
 L'API sera disponible à l'adresse suivant
+
 - http://localhost:3010/api/recipes.
 
 ## Auteur

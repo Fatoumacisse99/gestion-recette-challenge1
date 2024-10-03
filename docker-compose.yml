@@ -1,6 +1,6 @@
 services:
   db:
-    env_file: .env
+    env_file: .env.test
     image: mariadb:latest
     container_name: gestion_recette
     restart: always
