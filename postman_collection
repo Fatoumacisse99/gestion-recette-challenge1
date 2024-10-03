@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c86bb8af-2163-42cf-bc9f-3710f30d3fa4",
+		"_postman_id": "c862f9e6-fc0a-4317-94ae-bc38423a8a65",
 		"name": "Gestion_Recettes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38098523"
@@ -24,12 +24,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3010/api/recipes",
+					"raw": "http://localhost:3011/api/recipes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3010",
+					"port": "3011",
 					"path": [
 						"api",
 						"recipes"
@@ -51,7 +51,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"titre\": \"creepe nulletases\",\r\n    \"ingredients\": \"fariHe, oeufs, cacao\",\r\n    \"type\": \"Dessert\"   \r\n}\r\n",
+					"raw": "{\r\n    \"titre\": \"creepee nulHletases\",\r\n    \"ingredients\": \"fariHe, oeufs, cacao\",\r\n    \"type\": \"Dessert\"   \r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,12 +59,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3010/api/recipes",
+					"raw": "http://localhost:3011/api/recipes",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3010",
+					"port": "3011",
 					"path": [
 						"api",
 						"recipes"
@@ -80,7 +80,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"titre\": \"PastcretveHtDA\",\r\n  \"ingredients\": \"Pâtes, paancetta\",\r\n  \"type\": \"Dessert\"\r\n  \r\n}",
+					"raw": "{\r\n  \"titre\": \"PastcgretveHtDA\",\r\n  \"ingredients\": \"Pâtees, paancetta\",\r\n  \"type\": \"Dessert\"\r\n  \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -88,12 +88,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3010/api/recipes/5",
+					"raw": "http://localhost:3011/api/recipes/5",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3010",
+					"port": "3011",
 					"path": [
 						"api",
 						"recipes",
@@ -109,16 +109,16 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3010/api/recipes/1",
+					"raw": "http://localhost:3011/api/recipes/6",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "3010",
+					"port": "3011",
 					"path": [
 						"api",
 						"recipes",
-						"1"
+						"6"
 					]
 				}
 			},
