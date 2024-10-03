@@ -154,8 +154,7 @@ Assurez-vous que Mysql est en cours d'exécution sur votre machine locale.
 renommer le fichier .env.exemple en .env et entrer vos informations de connexion dans ce fichier:
 
 ```bash
-DB_HOST=db  //Si vous exécutez l'application avec Docker, utilisez 'db'.
-DB_HOST=localhost  //Si vous exécutez l'application localement sans Docker, utilisez 'localhost'.
+DB_HOST=localhost  //pour executer l'application avec  Docker, remplacer 'localhost'par 'db'
 DB_USER=root
 DB_PASSWORD=yourpassword
 DB_NAME=yourdb
@@ -195,18 +194,35 @@ npm run format
 
 Pour lancer l'API avec Docker, suivez ces étapes :
 
-### 1. Construire l'image Docker
+## Commandes Docker
 
-À la racine de votre projet, exécutez la commande suivante pour construire l'image Docker de l'API :
+1. **Construire et démarrer les services avec la commande suivante:**
+   ```bash
+   docker-compose up --build
+   ```
 
-```bash
-docker build -t fatoumacisse99/api-gestion-recette:v2 .
-```
-
-Assure-toi que le fichier docker-compose.yml est configuré correctement, puis exécute avec la commande suivante :
-
+````
+2.**Démarrer les services en arrière-plan avec la commande suivante:**
 ```bash
 docker-compose up -d
+````
+
+3.**Ensuite Exécuter les tests de l'application avec la commande suivante:**
+
+```bash
+  docker exec -it recette-api npm run test
+```
+
+- **Exécuter ESLint pour corriger le code avec la commande suivante:**
+
+```bash
+docker exec -it recette-api npm run lint:fix
+```
+
+**Formater le code selon les normes avec la commande suivante:**
+
+```bash
+docker exec -it recette-api npm run format
 ```
 
 - Vérifier que les conteneurs sont en cours d'exécution avec la commande suivante:
@@ -218,7 +234,7 @@ docker-compose up -d
 
 L'API sera disponible à l'adresse suivant
 
-- http://localhost:3010/api/recipes.
+- http://localhost:3011/api/recipes.
 
 ## Auteur
 
