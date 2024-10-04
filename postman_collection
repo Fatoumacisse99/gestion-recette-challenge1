@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c862f9e6-fc0a-4317-94ae-bc38423a8a65",
+		"_postman_id": "2cceb37c-4938-454d-940c-58cf6c52e221",
 		"name": "Gestion_Recettes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38098523"
@@ -51,7 +51,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"titre\": \"creepee nulHletases\",\r\n    \"ingredients\": \"fariHe, oeufs, cacao\",\r\n    \"type\": \"Dessert\"   \r\n}\r\n",
+					"raw": "{\r\n    \"titre\": \"Crepe Zahra\",\r\n    \"ingredients\": \"fariHe, oeufs, cacao\",\r\n    \"type\": \"Dessert\"   \r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,7 +80,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"titre\": \"PastcgretveHtDA\",\r\n  \"ingredients\": \"Pâtees, paancetta\",\r\n  \"type\": \"Dessert\"\r\n  \r\n}",
+					"raw": "{\r\n  \"titre\": \"Crepe Sucré Salé\",\r\n  \"ingredients\": \"Pâtees, paancetta\",\r\n  \"type\": \"Dessert\"\r\n  \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -88,7 +88,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3011/api/recipes/5",
+					"raw": "http://localhost:3011/api/recipes/8",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -97,7 +97,7 @@
 					"path": [
 						"api",
 						"recipes",
-						"5"
+						"8"
 					]
 				}
 			},
@@ -109,7 +109,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3011/api/recipes/6",
+					"raw": "http://localhost:3011/api/recipes/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -118,7 +118,7 @@
 					"path": [
 						"api",
 						"recipes",
-						"6"
+						"10"
 					]
 				}
 			},
