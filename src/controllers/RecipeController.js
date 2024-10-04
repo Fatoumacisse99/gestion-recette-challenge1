@@ -1,4 +1,4 @@
-import RecipeModel from '../models/RecipeModel.js';
+import RecipeModel from "../models/RecipeModel.js";
 export const createRecipe = async (req, res) => {
   const { titre, ingredients, type } = req.body;
 
@@ -7,7 +7,7 @@ export const createRecipe = async (req, res) => {
     if (existingRecipe) {
       return res
         .status(400)
-        .json({ message: 'Une recette avec ce titre existe déjà.' });
+        .json({ message: "Une recette avec ce titre existe déjà." });
     }
     const newRecipe = await RecipeModel.createRecipe({
       titre,
@@ -34,7 +34,7 @@ export const getRecipeById = async (req, res) => {
   try {
     const recipe = await RecipeModel.getRecipeById(id);
     if (!recipe) {
-      return res.status(404).json({ message: 'Recette non trouvée.' });
+      return res.status(404).json({ message: "Recette non trouvée." });
     }
     return res.status(200).json(recipe);
   } catch (err) {
@@ -51,7 +51,7 @@ export const updateRecipe = async (req, res) => {
     if (existingRecipe && existingRecipe.id !== id) {
       return res
         .status(400)
-        .json({ message: 'Une recette avec ce titre existe déjà.' });
+        .json({ message: "Une recette avec ce titre existe déjà." });
     }
 
     const updatedRecipe = await RecipeModel.updateRecipe(id, {
@@ -61,7 +61,7 @@ export const updateRecipe = async (req, res) => {
     });
 
     if (!updatedRecipe) {
-      return res.status(404).json({ message: 'Recette non trouvée.' });
+      return res.status(404).json({ message: "Recette non trouvée." });
     }
 
     return res.status(200).json(updatedRecipe);
@@ -79,10 +79,10 @@ export const deleteRecipe = async (req, res) => {
     console.log(`Résultat de la suppression : ${deleted}`);
 
     if (!deleted) {
-      return res.status(404).json({ message: 'Recette non trouvée.' });
+      return res.status(404).json({ message: "Recette non trouvée." });
     }
 
-    return res.status(200).json({ message: 'Recette supprimée avec succès.' });
+    return res.status(200).json({ message: "Recette supprimée avec succès." });
   } catch (err) {
     console.error(`Erreur lors de la suppression : ${err.message}`);
     return res.status(500).json({ message: err.message });
